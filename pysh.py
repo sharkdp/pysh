@@ -49,7 +49,7 @@ envFile.close()
 with tempfile.NamedTemporaryFile("wt", delete=False) as outFile:
     with redirect_stdout(outFile):
         print("#!{shell}".format(shell=shell))
-        print("set -a")  # Export all local variables
+        print("set -o allexport")
         print("")
         for bType, lines in blocks:
             if bType == "python":
