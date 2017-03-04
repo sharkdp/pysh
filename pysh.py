@@ -48,7 +48,7 @@ envFile.close()
 
 with tempfile.NamedTemporaryFile("wt", delete=False) as outFile:
     with redirect_stdout(outFile):
-        print("#!{}".format(shell))
+        print("#!{shell}".format(shell=shell))
         print("set -a")  # Export all local variables
         print("")
         for bType, lines in blocks:
@@ -63,20 +63,20 @@ with tempfile.NamedTemporaryFile("wt", delete=False) as outFile:
                 print("\n".join(lines))
                 print("pyEnv = {k: v for k, v in locals().items()}")
                 print("")
-                print('with open("{}", "w") as f:'.format(envFile.name))
+                print('with open("{envFile}", "w") as f:'.format(envFile=envFile.name))
                 print("    for k, v in pyEnv.items():")
                 print("        if type(v) == str:")
                 print("            val = str(v).replace('\"', '\\\\\\\"')")
                 print("            val = val.replace('$', '\\\\$')")
-                print("            f.write('{}=\"{}\"\\n'.format(k, val))")
+                print("            f.write('{k}=\"{val}\"\\n'.format(k=k, val=val))")
                 print("EOF")
-                print("source '{}'".format(envFile.name))
+                print("source '{envFile}'".format(envFile=envFile.name))
             else:
                 print("".join(lines))
 
 if args.debug:
-    os.system("cat '{}'".format(outFile.name))
+    os.system("cat '{script}'".format(script=outFile.name))
 else:
-    os.system("bash '{}'".format(outFile.name))
+    os.system("{shell} '{script}'".format(shell=shell, script=outFile.name))
 os.remove(outFile.name)
 os.remove(envFile.name)
