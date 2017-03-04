@@ -2,7 +2,7 @@
 Python-enhanced bash scripts.
 
 `pysh` allows you to write bash scripts that include short snippets of Python
-code where the local environment is shared between bash and Python.
+code with a local environment that is shared between bash and Python.
 
 ## Example
 Lines that start with `#> ` are evaluated as Python:
