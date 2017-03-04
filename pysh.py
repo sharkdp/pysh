@@ -55,6 +55,7 @@ with tempfile.NamedTemporaryFile("wt", delete=False) as outFile:
             if bType == "python":
                 print("python <<EOF")
                 print("import os")
+                print("import sys")
                 print("for k, v in os.environ.items():")
                 print("    locals()[k] = v")
                 print("")

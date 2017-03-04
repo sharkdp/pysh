@@ -1,21 +1,25 @@
 # pysh
 Python-enhanced bash scripts.
 
-**pysh** allows you to write bash scripts that include short snippets of python code
-where the local environment is shared between bash and python.
+`pysh` allows you to write bash scripts that include short snippets of Python
+code where the local environment is shared between bash and Python.
 
 ## Example
-*hello.sh*:
+Lines that start with `#> ` are evaluated as Python:
 ```bash
-# From bash to python
+##### From bash to python #####
 
-bashVariable="hello world"
-#> print(bashVariable + " from python!")
+bashVariable="Hello world"
+#> print("{} from python!".format(bashVariable))
 
-# From python to bash
 
-#> pythonVariable = "hello world"
+##### From python to bash #####
+
+#> pythonVariable = " ".join(["Hello", "world"])
 echo "$pythonVariable from bash!"
+
+
+######## Back and forth #######
 
 for file in *.csv; do
     echo
@@ -31,11 +35,11 @@ done
 Run it:
 ```
 > ls
-dummy.csv  important.csv  test.sh
+dummy.csv  important.csv  example.sh
 
-> pysh test.sh            
-hello world from python!
-hello world from bash!
+> pysh example.sh
+Hello world from python!
+Hello world from bash!
 
 before: dummy.csv
 after:  DUMMY.csv
