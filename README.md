@@ -1,7 +1,7 @@
 # pysh
 Python-enhanced bash scripts.
 
-[![Build Status](https://travis-ci.com/sharkdp/pysh.svg?branch=master)](https://travis-ci.com/sharkdp/pysh)
+[![Build Status](https://travis-ci.org/sharkdp/pysh.svg?branch=master)](https://travis-ci.org/sharkdp/pysh)
 
 `pysh` allows you to write bash scripts that include short snippets of Python
 code with a local environment that is shared between bash and Python.
