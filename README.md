@@ -48,5 +48,9 @@ before: important.csv
 after:  IMPORTANT.csv
 ```
 
+## Caveats
+
+This is only supported for Python 3.4 and above due to `redirect_stdout`.
+
 ## Disclaimer / warning
 This is a prototype implementation with lots of evil hacks.
