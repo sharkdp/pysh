@@ -7,3 +7,4 @@ python:
 script:
   python pysh.py -h
   python pysh.py example.sh
+  python pysh.py -d example.sh
