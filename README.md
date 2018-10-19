@@ -1,6 +1,8 @@
 # pysh
 Python-enhanced bash scripts.
 
+[![Build Status](https://travis-ci.com/sharkdp/pysh.svg?branch=master)](https://travis-ci.com/sharkdp/pysh)
+
 `pysh` allows you to write bash scripts that include short snippets of Python
 code with a local environment that is shared between bash and Python.
 
@@ -47,6 +49,10 @@ after:  DUMMY.csv
 before: important.csv
 after:  IMPORTANT.csv
 ```
+
+## Caveats
+
+This is only supported for Python 3.4 and above due to [`redirect_stdout`](https://docs.python.org/3/library/contextlib.html#contextlib.redirect_stdout).
 
 ## Disclaimer / warning
 This is a prototype implementation with lots of evil hacks.
